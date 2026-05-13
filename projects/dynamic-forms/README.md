@@ -1,5 +1,10 @@
 # DynamicForms
 
+[![Build Status](https://github.com/aleSal83/angular-dynamic-form/actions/workflows/ci.yml/badge.svg)](https://github.com/aleSal83/angular-dynamic-form/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/dynamic-forms.svg)](https://www.npmjs.com/package/dynamic-forms)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://github.com/aleSal83/angular-dynamic-form/actions)
+
 Libreria Angular per la generazione dinamica di form.
 
 ## Installazione
