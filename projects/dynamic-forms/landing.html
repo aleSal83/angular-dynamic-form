@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DynamicForms - Angular Dynamic Form Library</title>
+  <meta name="description" content="Crea form dinamici, wizard e validazioni avanzate in Angular in pochi minuti. Prova la demo interattiva!">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Roboto, Arial, sans-serif; margin: 0; background: #f7f7f7; color: #222; }
+    header { background: #1976d2; color: #fff; padding: 2rem 1rem; text-align: center; }
+    .cta { background: #fff; margin: 2rem auto; padding: 2rem; border-radius: 8px; max-width: 600px; box-shadow: 0 2px 8px #0001; }
+    .cta h2 { margin-top: 0; }
+    .features { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 2rem 0; }
+    .feature { background: #fff; padding: 1rem; border-radius: 6px; min-width: 220px; box-shadow: 0 1px 4px #0001; }
+    .demo { text-align: center; margin: 2rem 0; }
+    .demo iframe { width: 100%; max-width: 700px; height: 400px; border: none; border-radius: 8px; }
+    footer { text-align: center; color: #888; margin: 2rem 0 1rem; }
+    .btn { background: #1976d2; color: #fff; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; font-size: 1.1rem; cursor: pointer; text-decoration: none; }
+    .btn:hover { background: #125ea2; }
+    .quickstart { background: #fffbe6; border-left: 4px solid #ffd600; margin: 2rem auto; padding: 1.5rem; border-radius: 8px; max-width: 600px; }
+    .quickstart pre { background: #f7f7f7; padding: 1rem; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DynamicForms</h1>
+    <p>La libreria Angular per form dinamici, wizard e validazioni avanzate</p>
+    <a class="btn" href="#demo">Prova la demo</a>
+  </header>
+  <section class="quickstart">
+    <h2>🚀 Quick Start (5 minuti)</h2>
+    <ol>
+      <li>Installa la libreria:<br>
+        <pre><code>npm install dynamic-forms</code></pre>
+      </li>
+      <li>Importa il modulo nel tuo AppModule:<br>
+        <pre><code></code></pre>
+      </li>
+      <li>Usa il componente nel template:<br>
+        <pre><code>&lt;df-form [schema]="schema"&gt;&lt;/df-form&gt;</code></pre>
+      </li>
+    </ol>
+    <strong>Risultato:</strong> un form dinamico funzionante in meno di 5 minuti!
+  </section>
+  <section class="cta">
+    <h2>Perché DynamicForms?</h2>
+    <ul>
+      <li>✅ Crea form dinamici da JSON in pochi secondi</li>
+      <li>✅ Wizard multi-step con validazione step-by-step</li>
+      <li>✅ Logica condizionale e validazioni avanzate</li>
+      <li>✅ Pronto per Angular 18+</li>
+      <li>✅ Facile da integrare, documentazione chiara</li>
+    </ul>
+    <a class="btn" href="#esempi">Guarda gli esempi</a>
+  </section>
+  <section class="features">
+    <div class="feature">
+      <h3>Wizard Builder</h3>
+      <p>Costruisci form a step con progress bar e navigazione semplice.</p>
+    </div>
+    <div class="feature">
+      <h3>Conditional Logic</h3>
+      <p>Mostra/nascondi campi in base ai valori inseriti, anche in modo visuale.</p>
+    </div>
+    <div class="feature">
+      <h3>Validazione Avanzata</h3>
+      <p>Supporto per regole cross-field e validatori personalizzati.</p>
+    </div>
+    <div class="feature">
+      <h3>Autosave &amp; Persistence</h3>
+      <p>Salva lo stato del form in locale o su API, senza perdere dati.</p>
+    </div>
+  </section>
+  <section class="demo" id="demo">
+    <h2>Demo interattiva</h2>
+    <iframe src="https://stackblitz.com/edit/angular-ivy-xyz123?embed=1&file=src/app/app.component.ts"></iframe>
+    <p><a class="btn" href="https://stackblitz.com/edit/angular-ivy-xyz123" target="_blank">Apri su StackBlitz</a></p>
+  </section>
+  <section class="cta" id="esempi">
+    <h2>Esempi copy-paste</h2>
+    <pre><code>const schema = {
+  fields: [
+    { type: 'text', name: 'nome', label: 'Nome' },
+    { type: 'email', name: 'email', label: 'Email' }
+  ]
+};
+
+&lt;df-form [schema]="schema"&gt;&lt;/df-form&gt;
+</code></pre>
+    <pre><code>const wizardSchema = {
+  steps: [
+    { label: 'Step 1', fields: [ { type: 'text', name: 'nome', label: 'Nome' } ] },
+    { label: 'Step 2', fields: [ { type: 'email', name: 'email', label: 'Email' } ] }
+  ]
+};
+
+&lt;df-wizard [schema]="wizardSchema"&gt;&lt;/df-wizard&gt;
+</code></pre>
+  </section>
+  <footer>
+    <p>© 2026 DynamicForms. <a href="https://github.com/aleSal83/angular-dynamic-form">GitHub</a></p>
+  </footer>
+</body>
+</html>
+

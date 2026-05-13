@@ -24,32 +24,31 @@ import {MatCardModule} from "@angular/material/card";
 export class DynamicFormComponent implements OnInit {
 
   @Input() schema!: FormSchema;
+  @Input() form!: FormGroup;
 
-  form!: FormGroup;
+  ngOnInit() {
+    if (!this.form) {
+      this.form = this.builder.buildForm(this.schema);
+      if (this.schema.options?.persist) {
+        const saved = localStorage.getItem(this.schema.options.storageKey || '');
+        if (saved) this.form.patchValue(JSON.parse(saved));
+        this.form.valueChanges.subscribe(val => {
+          localStorage.setItem(this.schema.options?.storageKey || '', JSON.stringify(val));
+        });
+      }
+    }
+  }
 
   constructor(
     private builder: FormBuilderService,
     private condition: ConditionService
   ) {}
 
-  ngOnInit() {
-    this.form = this.builder.buildForm(this.schema);
-
-    if (this.schema.options?.persist) {
-      const saved = localStorage.getItem(this.schema.options.storageKey || '');
-      if (saved) this.form.patchValue(JSON.parse(saved));
-
-      this.form.valueChanges.subscribe(val => {
-        localStorage.setItem(this.schema.options?.storageKey || '', JSON.stringify(val));
-      });
-    }
-  }
-
   isVisible(field: any) {
-    return this.condition.check(field.condition, this.form.value);
+    return this.condition.check(field.condition, this.form!.value);
   }
 
   submit() {
-    console.log(this.form.value);
+    console.log(this.form!.value);
   }
 }

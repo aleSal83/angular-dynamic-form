@@ -1,12 +1,12 @@
-<form [formGroup]="form">
+<form *ngIf="form" [formGroup]="form">
 
   <ng-container *ngFor="let field of schema.fields">
 
-    <df-field
+    <df-field-renderer
       *ngIf="isVisible(field)"
       [field]="field"
       [form]="form">
-    </df-field>
+    </df-field-renderer>
 
   </ng-container>
 

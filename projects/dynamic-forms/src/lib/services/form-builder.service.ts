@@ -9,14 +9,16 @@ export class FormBuilderService {
 
   buildForm(schema: FormSchema) {
     const group: any = {};
-
-    schema.fields.forEach(field => {
+    (schema.fields || []).forEach(field => {
+      let validators = this.mapValidators(field.validators || []);
+      if (field.min !== undefined) validators.push(Validators.min(field.min));
+      if (field.max !== undefined) validators.push(Validators.max(field.max));
+      if (field.pattern) validators.push(Validators.pattern(field.pattern));
       group[field.name] = [
         field.defaultValue || '',
-        this.mapValidators(field.validators || [])
+        validators
       ];
     });
-
     return this.fb.group(group);
   }
 

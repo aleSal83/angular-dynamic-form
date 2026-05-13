@@ -1,0 +1,15 @@
+<div *ngIf="steps.length">
+  <div class="wizard-progress">
+    Step {{currentStep + 1}} / {{steps.length}}: {{steps[currentStep].label}}
+  </div>
+
+  <form [formGroup]="formGroups[currentStep]">
+    <df-form [schema]="currentStepSchema" [form]="formGroups[currentStep]"></df-form>
+  </form>
+
+  <div class="wizard-nav">
+    <button type="button" (click)="prev()" [disabled]="currentStep === 0">Indietro</button>
+    <button type="button" (click)="next()" [disabled]="currentStep === steps.length - 1">Avanti</button>
+    <button type="button" (click)="submit()" *ngIf="currentStep === steps.length - 1">Invia</button>
+  </div>
+</div>

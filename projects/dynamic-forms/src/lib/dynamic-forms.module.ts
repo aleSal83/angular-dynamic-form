@@ -10,11 +10,11 @@ import { FieldRendererComponent } from './components/field-renderer/field-render
     CommonModule,
     ReactiveFormsModule,
     DynamicFormComponent,
-    FieldRendererComponent
+    FieldRendererComponent,
   ],
   exports: [
     DynamicFormComponent,
-    FieldRendererComponent
+    FieldRendererComponent,
   ]
 })
 export class DynamicFormsModule {}

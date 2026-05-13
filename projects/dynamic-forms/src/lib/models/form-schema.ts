@@ -1,7 +1,13 @@
 export interface FormSchema {
   id?: string;
-  fields: FieldConfig[];
+  fields?: FieldConfig[]; // Per compatibilità con form semplici
+  steps?: FormStep[]; // Nuovo: wizard
   options?: FormOptions;
+}
+
+export interface FormStep {
+  label: string;
+  fields: FieldConfig[];
 }
 
 export interface FormOptions {
@@ -10,7 +16,7 @@ export interface FormOptions {
 }
 
 export interface FieldConfig {
-  type: 'text' | 'email' | 'number' | 'select' | 'radio';
+  type: 'text' | 'email' | 'number' | 'select' | 'radio' | 'date' | 'textarea' | 'checkbox' | 'switch' | 'file';
   name: string;
   label?: string;
   placeholder?: string;
@@ -21,6 +27,9 @@ export interface FieldConfig {
   validators?: ValidatorConfig[];
 
   condition?: ConditionConfig;
+  min?: number;
+  max?: number;
+  pattern?: string;
 }
 
 export interface FieldOption {
