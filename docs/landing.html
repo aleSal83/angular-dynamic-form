@@ -79,23 +79,21 @@
   </section>
   <section class="cta" id="esempi">
     <h2>Esempi copy-paste</h2>
-    <pre><code>const schema = {
+    <pre><code>const schema = &#123;
   fields: [
+    {{ "{" }} type: 'text', name: 'nome', label: 'Nome' },
+    {{ "{" }} type: 'email', name: 'email', label: 'Email' }
+  ]
+&#125;;
+
+&lt;df-form [schema]="schema"&gt;&lt;/df-form&gt;
+</code></pre>
+    <pre><code>const schema = {
+      fields: [
     { type: 'text', name: 'nome', label: 'Nome' },
     { type: 'email', name: 'email', label: 'Email' }
   ]
 };
-
-&lt;df-form [schema]="schema"&gt;&lt;/df-form&gt;
-</code></pre>
-    <pre><code>const wizardSchema = {
-  steps: [
-    { label: 'Step 1', fields: [ { type: 'text', name: 'nome', label: 'Nome' } ] },
-    { label: 'Step 2', fields: [ { type: 'email', name: 'email', label: 'Email' } ] }
-  ]
-};
-
-&lt;df-wizard [schema]="wizardSchema"&gt;&lt;/df-wizard&gt;
 </code></pre>
   </section>
   <footer>
