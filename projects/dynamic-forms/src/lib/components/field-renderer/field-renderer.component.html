@@ -1,0 +1,45 @@
+<div [formGroup]="form" class="field">
+
+  <ng-container [ngSwitch]="field.type">
+
+    <!-- TEXT / EMAIL -->
+    <mat-form-field appearance="outline" class="full-width" *ngSwitchCase="'text'">
+      <mat-label>{{ field.label }}</mat-label>
+      <input matInput [formControlName]="field.name" [placeholder]="field.placeholder || ''" />
+      <mat-error *ngIf="form.get(field.name)?.invalid">
+        Campo non valido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" *ngSwitchCase="'email'">
+      <mat-label>{{ field.label }}</mat-label>
+      <input matInput type="email" [formControlName]="field.name" />
+      <mat-error *ngIf="form.get(field.name)?.invalid">
+        Email non valida
+      </mat-error>
+    </mat-form-field>
+
+    <!-- SELECT -->
+    <mat-form-field appearance="outline" class="full-width" *ngSwitchCase="'select'">
+      <mat-label>{{ field.label }}</mat-label>
+      <mat-select [formControlName]="field.name">
+        <mat-option *ngFor="let opt of field.options" [value]="opt.value">
+          {{ opt.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- RADIO -->
+    <div *ngSwitchCase="'radio'" class="radio-group">
+      <label class="radio-label">{{ field.label }}</label>
+
+      <mat-radio-group [formControlName]="field.name">
+        <mat-radio-button *ngFor="let opt of field.options" [value]="opt.value">
+          {{ opt.label }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+  </ng-container>
+
+</div>

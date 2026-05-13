@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+
+  <ng-container *ngFor="let field of schema.fields">
+
+    <df-field
+      *ngIf="isVisible(field)"
+      [field]="field"
+      [form]="form">
+    </df-field>
+
+  </ng-container>
+
+  <button (click)="submit()">Submit</button>
+
+</form>
