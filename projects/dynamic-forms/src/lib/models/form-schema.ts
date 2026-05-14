@@ -16,7 +16,7 @@ export interface FormOptions {
 }
 
 export interface FieldConfig {
-  type: 'text' | 'email' | 'number' | 'select' | 'radio' | 'date' | 'textarea' | 'checkbox' | 'switch' | 'file';
+  type: 'text' | 'email' | 'number' | 'select' | 'radio' | 'date' | 'textarea' | 'checkbox' | 'switch' | 'file' | 'custom' | 'widget';
   name: string;
   label?: string;
   placeholder?: string;
